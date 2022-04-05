@@ -7,12 +7,16 @@ export const Anchor = styled.a`
   text-decoration: none;
 `
 export const Image = styled.img`
-  border: 1px solid #ddd;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
+  border: 1px solid #fff;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
   height: auto;
   overflow: hidden;
   object-fit: cover;
-  height: 75px;
-  width: 75px;
+  height: 80px;
+  width: 80px;
+  outline: 3px solid white;
+  outline-offset: -7px;
+  padding: 3px;
+  background: linear-gradient(45deg, rgb(255, 230, 0), rgb(255, 0, 128) 80%);
 `

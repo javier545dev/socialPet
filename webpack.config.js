@@ -7,22 +7,21 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  // El resolve permite manejar las extensiones con las que trabajaremos
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.json']
   },
   module: {
     rules: [
-      // Js and JSX loader
       {
-        // Esta configuracion des test cargara el loader con cualquier extension
         test: /\.(js|jsx)$/,
-        // Es importante ignorar la carpeta node_modules
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env'], ['@babel/preset-react']]
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: [
+              ['@babel/plugin-transform-runtime', { regenerator: true }]
+            ]
           }
         }
       }
@@ -40,7 +39,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist/')
     },
     compress: true,
-    port: 3007,
+    port: 3001,
     open: true
   }
 }
