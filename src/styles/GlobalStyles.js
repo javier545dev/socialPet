@@ -27,7 +27,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fefefe;
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    transition: background 0.2s ease-in, color 0.2s ease-in;
     height: 100vh;
     margin: 0 auto;
     max-width: 500px;
@@ -42,3 +44,11 @@ export const GlobalStyle = createGlobalStyle`
     padding-bottom: 10px;
   }
 `
+export const lightTheme = {
+  body: '#f1f1f1',
+  text: '#121620'
+}
+export const darkTheme = {
+  body: '#121620',
+  text: '#f1f1f1'
+}

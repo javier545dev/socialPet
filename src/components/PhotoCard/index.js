@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Article, ImgWrapper, Img, Button } from './styles'
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
+import { Article, ImgWrapper, Img } from './styles'
+import { FavButton } from '../FavButton'
+
 
 const DEFAULT_IMAGE =
   'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_dogs.jpg'
@@ -35,8 +36,6 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     })
   }, [element])
 
-  const Icon = liked ? MdFavorite : MdFavoriteBorder
-
   const setLocalStorage = (value) => {
     try {
       window.localStorage.setItem(key, value)
@@ -46,21 +45,20 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     }
   }
 
+  const HandleFavClic = () => setLiked(!liked)
+
   return (
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/detail/${id}`}>
+          <a href={`/?detail=${id}`}>
             <ImgWrapper>
               <Img src={src} />
             </ImgWrapper>
           </a>
         </>
       )}
-      <Button onClick={() => setLocalStorage(!liked)}>
-        <Icon size="32px" />
-        {likes} likes!
-      </Button>
+      <FavButton liked={liked} likes={likes} onClick={handleFavClic} />
     </Article>
   )
 }
