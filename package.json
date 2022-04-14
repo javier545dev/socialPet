@@ -4,7 +4,7 @@
   "description": "Social-pet Hub",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development --history-api-fallback",
     "build": "webpack",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix",
@@ -51,6 +51,7 @@
     "react-apollo": "^3.1.5",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
+    "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   }
 }
