@@ -4,6 +4,5 @@ import { PhotoCardQuery } from '../container/PhotoCardQuery'
 
 export const Detail = () => {
   const params = useParams()
-  console.log(params)
-  return <PhotoCardQuery id={params.detailId} />
+  return <PhotoCardQuery id={params.Id} />
 }

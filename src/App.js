@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
-import { lightTheme, darkTheme, GlobalStyle } from './styles/GlobalStyles'
+import { AppContext } from './Context/AppContext'
+
+//styles
 import { ThemeProvider } from 'styled-components'
+import { Header, ButtonTheme } from './styles/styles'
+import { lightTheme, darkTheme, GlobalStyle } from './styles/GlobalStyles'
+import { MdOutlineLightMode, MdOutlineModeNight } from 'react-icons/md'
+
+// rutas principales
 import { Detail } from './pages/Detail'
-import { Home } from '././pages/Home'
+import { Home } from './pages/Home'
+import { Favs } from './pages/Favs'
+import { NotRegister } from './pages/NotRegister'
+import { User } from '././pages/User'
+
+// componentes principales (Encabezado)
 import { NavBar } from './components/NavBar'
 import { Logo } from './components/Logo'
-import { Header } from './styles/styles'
 
 export const App = () => {
   // route parameters
-  const urlParams = new window.URLSearchParams(window.location.search)
-  const detailId = urlParams.get('detail')
+  const { isAuth } = useContext(AppContext)
 
   // hook state theme selector
   const [theme, setTheme] = useState('light')
@@ -41,22 +51,24 @@ export const App = () => {
           <GlobalStyle />
           <Header>
             <Logo />
-            <button onClick={toggleTheme}>
+            <ButtonTheme onClick={toggleTheme}>
               {isDarkTheme ? (
                 <span aria-label="Light Mode" role="img">
-                  🌞
+                  <MdOutlineLightMode size="1.5rem" />
                 </span>
               ) : (
                 <span aria-label="Dark Mode" role="img">
-                  🌜
+                  <MdOutlineModeNight size="1.5rem" />
                 </span>
               )}
-            </button>
+            </ButtonTheme>
           </Header>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/detail/:detailId" element={<Detail />} />
             <Route path="/pet/:id" element={<Home />} />
+            <Route path="/detail/:Id" element={<Detail />} />
+            <Route path="/favs" element={isAuth ? <Favs /> : <NotRegister />} />
+            <Route path="/user" element={isAuth ? <User /> : <NotRegister />} />
           </Routes>
           <NavBar />
         </BrowserRouter>
