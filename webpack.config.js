@@ -45,6 +45,7 @@ module.exports = {
       display: 'standalone',
       scope: '/',
       start_url: '/',
+      filename: 'site.webmanifest.json',
       icons: [
         {
           src: path.resolve('src/assets/icon-192x192.png'),
