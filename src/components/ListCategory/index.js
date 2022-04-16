@@ -20,7 +20,7 @@ function useCategoriesData() {
   return { categories, loading }
 }
 
-export const ListCategory = () => {
+const ListCategoryComponent = () => {
   const { categories, loading } = useCategoriesData()
   const [showFixed, setShowFixed] = useState(false)
 
@@ -56,3 +56,4 @@ export const ListCategory = () => {
     </List>
   )
 }
+export const ListCategory = React.memo(ListCategoryComponent)

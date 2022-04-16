@@ -4,8 +4,9 @@
   "description": "Social-pet Hub",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --history-api-fallback",
+    "start": "webpack-dev-server --mode development",
     "build": "webpack",
+    "serve": "webpack --mode 'development' && npx serve dist -s",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix",
     "vercel": "npm run build",
@@ -40,18 +41,22 @@
     "prettier": "^2.6.1",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
+    "webpack-dev-server": "^4.8.1",
+    "webpack-pwa-manifest": "^4.3.0"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "apollo-boost": "^0.4.9",
     "graphql": "^16.3.0",
     "intersection-observer": "^0.12.0",
+    "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-apollo": "^3.1.5",
     "react-dom": "^18.0.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "workbox-webpack-plugin": "^6.5.3"
   }
 }

@@ -24,3 +24,7 @@ export const Img = styled.img`
   top: 0;
   width: 100%;
 `
+export const ContainerLikes = styled.div`
+  display: flex;
+  justify-content: center;
+`

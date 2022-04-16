@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Route, BrowserRouter, Routes } from 'react-router-dom'
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
 import { AppContext } from './Context/AppContext'
 
 //styles
@@ -14,13 +14,14 @@ import { Home } from './pages/Home'
 import { Favs } from './pages/Favs'
 import { NotRegister } from './pages/NotRegister'
 import { User } from '././pages/User'
+import { NotFound } from './pages/NotFound'
 
 // componentes principales (Encabezado)
 import { NavBar } from './components/NavBar'
 import { Logo } from './components/Logo'
 
 export const App = () => {
-  // route parameters
+  // Context Global
   const { isAuth } = useContext(AppContext)
 
   // hook state theme selector
@@ -64,11 +65,25 @@ export const App = () => {
             </ButtonTheme>
           </Header>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/pet/:id" element={<Home />} />
-            <Route path="/detail/:Id" element={<Detail />} />
-            <Route path="/favs" element={isAuth ? <Favs /> : <NotRegister />} />
-            <Route path="/user" element={isAuth ? <User /> : <NotRegister />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/pet/:id" element={<Home />} />
+            <Route exact path="/detail/:Id" element={<Detail />} />
+            <Route
+              exact
+              path="/favs"
+              element={isAuth ? <Favs /> : <NotRegister />}
+            />
+            <Route
+              exact
+              path="/user"
+              element={isAuth ? <User /> : <Navigate replace to="/login" />}
+            />
+            <Route
+              exact
+              path="/login"
+              element={!isAuth ? <NotRegister /> : <Navigate replace to="/" />}
+            />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <NavBar />
         </BrowserRouter>
