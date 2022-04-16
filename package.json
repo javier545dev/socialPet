@@ -10,7 +10,7 @@
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix",
     "vercel": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress open"
   },
   "browserslist": {
     "production": [
