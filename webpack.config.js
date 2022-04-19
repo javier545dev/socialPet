@@ -74,6 +74,7 @@ module.exports = {
       ]
     }),
     new WorkBox.GenerateSW({
+      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {
           urlPattern: new RegExp(

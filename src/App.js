@@ -6,7 +6,7 @@ import { AppContext } from './Context/AppContext'
 import { ThemeProvider } from 'styled-components'
 import { Header, ButtonTheme } from './styles/styles'
 import { lightTheme, darkTheme, GlobalStyle } from './styles/GlobalStyles'
-import { MdOutlineLightMode, MdOutlineModeNight } from 'react-icons/md'
+import { MdLightMode, MdModeNight } from 'react-icons/md'
 
 // rutas principales
 import { Detail } from './pages/Detail'
@@ -55,11 +55,11 @@ export const App = () => {
             <ButtonTheme onClick={toggleTheme}>
               {isDarkTheme ? (
                 <span aria-label="Light Mode" role="img">
-                  <MdOutlineLightMode size="1.5rem" />
+                  <MdLightMode size="1.7rem" />
                 </span>
               ) : (
                 <span aria-label="Dark Mode" role="img">
-                  <MdOutlineModeNight size="1.5rem" />
+                  <MdModeNight size="1.7rem" />
                 </span>
               )}
             </ButtonTheme>

@@ -8,6 +8,6 @@ export const Header = styled.div`
   margin-bottom: 10px;
 `
 export const ButtonTheme = styled.button`
-  padding: 1rem;
+  padding: 0 2rem;
   color: #ff0080;
 `
