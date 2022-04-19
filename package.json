@@ -1,5 +1,6 @@
 {
   "name": "instapet",
+  "homepage": ".",
   "version": "2.0.0",
   "description": "Social-Pet Hub",
   "main": "index.js",

@@ -5,7 +5,7 @@ import { fadeIn } from '../../styles/animation'
 export const Nav = styled.nav`
   align-items: center;
   background: ${({ theme }) => theme.body};
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid ${({ theme }) => theme.text};
   bottom: 0;
   display: flex;
   height: 60px;
