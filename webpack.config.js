@@ -45,7 +45,6 @@ module.exports = {
       display: 'standalone',
       scope: '/',
       start_url: '/',
-      filename: 'site.webmanifest.json',
       icons: [
         {
           src: path.resolve('src/assets/icon-192x192.png'),
@@ -74,6 +73,7 @@ module.exports = {
       ]
     }),
     new WorkBox.GenerateSW({
+      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {
           urlPattern: new RegExp(

@@ -45,10 +45,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 export const lightTheme = {
-  body: '#f1f1f1',
+  body: '#f9f9f9',
   text: '#121620'
 }
 export const darkTheme = {
   body: '#121620',
-  text: '#f1f1f1'
+  text: '#f9f9f9'
 }

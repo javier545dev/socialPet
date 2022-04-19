@@ -6,7 +6,7 @@ import { AppProvider } from './Context/AppContext'
 import { App } from './App'
 
 const client = new ApolloClient({
-  uri: 'https://instalog-dev.vercel.app/graphql',
+  uri: 'https://instapet-api-pink.vercel.app/graphql',
   request: (operation) => {
     const token = window.sessionStorage.getItem('token')
     const authorization = token ? `Bearer ${token}` : ''

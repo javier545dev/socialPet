@@ -13,6 +13,7 @@ import { Detail } from './pages/Detail'
 import { Home } from './pages/Home'
 import { Favs } from './pages/Favs'
 import { NotRegister } from './pages/NotRegister'
+import { Register } from './pages/Register'
 import { User } from '././pages/User'
 import { NotFound } from './pages/NotFound'
 
@@ -83,6 +84,7 @@ export const App = () => {
               path="/login"
               element={!isAuth ? <NotRegister /> : <Navigate replace to="/" />}
             />
+            <Route exact path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <NavBar />

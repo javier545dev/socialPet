@@ -1,36 +1,35 @@
 import React, { useContext } from 'react'
+import { Link } from './styles'
 import { AppContext } from '../Context/AppContext'
 import { UserForm } from '../components/UserForm'
-import { LoginMutation } from '../container/LoginMutation'
-import { Link } from './styles'
+import { RegisterMutation } from '../container/RegisterMutation'
 
-export const NotRegister = () => {
+export const Register = () => {
   const { activateAuth } = useContext(AppContext)
   return (
     <>
-      <LoginMutation>
-        {(login, { data, loading, error }) => {
+      <RegisterMutation>
+        {(register, { loading, error }) => {
           const onSubmit = ({ email, password }) => {
             const input = { email, password }
             const variables = { input }
-            login({ variables }).then(({ data }) => {
-              const { login } = data
-              activateAuth(login)
+            register({ variables }).then(({ data }) => {
+              const { signup } = data
+              activateAuth(signup)
             })
           }
-          const errorMsg =
-            error && 'Invalid email or password. Please try again.'
+          const errorMsg = error && 'User already exists'
           return (
             <UserForm
+              title="Register"
               disabled={loading}
               error={errorMsg}
-              title="Login"
               onSubmit={onSubmit}
             />
           )
         }}
-      </LoginMutation>
-      <Link to={'/register'}>Not register? Register Now!</Link>
+      </RegisterMutation>
+      <Link to={'/login'}>Already registered? Login Now!</Link>
     </>
   )
 }

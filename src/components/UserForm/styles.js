@@ -5,7 +5,7 @@ export const Div = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 50vh;
 `
 export const Form = styled.form`
   padding: 0.5rem;
@@ -44,10 +44,11 @@ export const Button = styled.button`
 export const Title = styled.h2`
   font-size: 2rem;
   font-weight: 500;
-  padding: 2rem 0;
+  padding: 4rem 0;
 `
 export const Error = styled.span`
   padding-top: 1rem;
   font-size: 1rem;
+  font-weight: bold;
   color: #ff0080;
 `
